@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: darkblue;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* the box wrapped calculator */
+.plus-minus-calculator {
+    border-radius: 5px;
+    background-color: white;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* setting both button how they look and onclick effects */
+.increment,
+.decrement {
+    color: darkblue;
+    font-size: 4rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+
+    &::before {
+        content: '';
+        height: 5px;
+        width: 0;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        background: black;
+        transition: 0.4s;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+            border-bottom-left-radius: 5px;
+        }
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, .1);
+    }
+}
+
+span.ripple {
+    background-color: rgba(0, 190, 255, .7);
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    animation: ripple .5s linear forwards;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* set the look of how number box presented */
+.shownumber {
+    border: none;
+    background: none;
+    font-size: 4rem;
+    color: black;
+    width: 100px;
+    max-width: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
